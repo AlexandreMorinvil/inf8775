@@ -490,7 +490,7 @@ def perform_ratio_test(x_exp, y_exp, label):
     plt.yscale("log")
     
     # Plot ratio
-    plt.plot(x, y_plot_power_1, color='yellow', label='Ratio : y / x')
+    plt.plot(x, y_plot_power_1, color='coral', label='Ratio : y / x')
     plt.plot(x, y_plot_power_nlog, color='orange', label='Ratio : y / xlog(x)')
     plt.plot(x, y_plot_power_2, color='red', label='Ratio : y / (x^2)')
 
