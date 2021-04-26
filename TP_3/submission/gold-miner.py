@@ -292,7 +292,7 @@ Entrypoint function
 """
 if __name__== "__main__":
     # Initialize the output
-    # sys.stdout.flush()
+    sys.stdout.flush()
 
     # Argument parsing
     file_name = parse_arguments()
