@@ -83,7 +83,7 @@ def display_solution(holes_list):
     for y in range(holes_list.shape[0]):
         for x in range(holes_list.shape[1]):
             if holes_list[y][x]:
-                print(y, x, flush=True)
+                print(y, x)
     print("")
 
 def remove_hole(y_position, x_position, matrix):
@@ -137,9 +137,6 @@ def solve(input_data, must_compute_time=True, must_display_path=True, min_row_st
     # 0     0     0     0     0     0     0
     data_height = dynamic_data.shape[0]
     data_width = dynamic_data.shape[1]
-    
-    print(data_height, data_width)
-    print(input_data)
     
     lateral_buffer_size = 2
     vertical_buffer_size = 2
@@ -215,10 +212,6 @@ def solve(input_data, must_compute_time=True, must_display_path=True, min_row_st
                 has_better_solution_to_display = True
                 
         if must_display_path and has_better_solution_to_display and (data_height - index_row) >= min_row_start_display and (index_row % row_interval_must_display == 0):
-            print("(data_height - index_row)", (data_height - index_row))
-            print("min_row_start_display", min_row_start_display)
-            print("(data_height - index_row) <= min_row_start_display", (data_height - index_row) <= min_row_start_display)
-            print("POSITION ======>", index_row, index_bloc)
             display_solution(holes_list)
             has_better_solution_to_display = False
     
@@ -285,7 +278,7 @@ def import_data(directory):
 Computation of the solution according to the algorithm provided
 """
 def handle_processing(cities_data):
-    return solve(input_data, must_compute_time=True, must_display_path=True, min_row_start_display=200, row_interval_must_display=50)
+    return solve(input_data, must_compute_time=True, must_display_path=True, min_row_start_display=300, row_interval_must_display=100)
 
 """
 Entrypoint function
@@ -302,8 +295,5 @@ if __name__== "__main__":
     input_data = merge_value_cost(input_data)
 
     solution_reached = handle_processing(input_data)
-
-    print(solution_reached)
-    print(input_data.shape)
 
 # %%
